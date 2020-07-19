@@ -17,6 +17,8 @@ public class Player extends Entity {
 	private int frames = 0, maxFrames = 5, index = 0, maxIndex = 3;
 	private boolean moved = false;
 	private BufferedImage[] rightPlayer, leftPlayer;
+	
+	public int life = 100;
 
 	public Player(int x, int y, int width, int height, BufferedImage sprite) {
 		super(x, y, width, height, sprite);
