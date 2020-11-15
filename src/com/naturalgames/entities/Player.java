@@ -18,7 +18,7 @@ public class Player extends Entity {
 	private boolean moved = false;
 	private BufferedImage[] rightPlayer, leftPlayer;
 	
-	public int life = 100;
+	public static double life = 100, maxLife = 100;
 
 	public Player(int x, int y, int width, int height, BufferedImage sprite) {
 		super(x, y, width, height, sprite);

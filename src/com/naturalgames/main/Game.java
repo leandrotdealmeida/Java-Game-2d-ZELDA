@@ -18,6 +18,7 @@ import com.naturalgames.entities.Enemy;
 import com.naturalgames.entities.Entity;
 import com.naturalgames.entities.Player;
 import com.naturalgames.graficos.Spritesheet;
+import com.naturalgames.graficos.UI;
 import com.naturalgames.world.World;
 
 public class Game extends Canvas implements Runnable, KeyListener {
@@ -42,6 +43,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	public static Player player;
 	
 	public static Random rand;
+	
+	public UI ui;
 
 	public Game() {
 		rand = new Random();
@@ -50,7 +53,7 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		initFrame();
 
 		// inicializando objetos
-		
+		ui = new UI();
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		entities = new ArrayList<Entity>();
 		enemies = new ArrayList<Enemy>();
@@ -112,13 +115,15 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		
-		// renderização do jogo
+		// renderizaï¿½ï¿½o do jogo
 		world.render(g);
 		for (int i = 0; i < entities.size(); i++) {
 			Entity e = entities.get(i);
 			e.render(g);
 
 		}
+		
+		ui.render(g);
 
 		g.dispose();
 		g = bs.getDrawGraphics();
